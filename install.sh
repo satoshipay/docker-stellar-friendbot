@@ -36,7 +36,7 @@ wget -nv -O /usr/local/bin/confd https://github.com/kelseyhightower/confd/releas
 chmod +x /usr/local/bin/confd
 
 # cleanup
-rm -rf /tmp/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz /tmp/linux-amd64 $GOPATH
+rm -rf /tmp/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz /tmp/linux-amd64 $GOPATH /root/.glide
 apt-get remove -y $BUILD_DEPS
 apt-get autoremove -y
 
