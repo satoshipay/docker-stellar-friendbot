@@ -1,0 +1,4 @@
+[template]
+src = "stellar-friendbot.cfg.tmpl"
+dest = "/stellar-friendbot.cfg"
+mode = "0644"
