@@ -26,4 +26,4 @@ ADD confd /etc/confd
 ADD entry.sh /
 ENTRYPOINT ["/entry.sh"]
 
-CMD ["/usr/local/bin/stellar-friendbot", "--conf", "/stellar-friendbot.cfg"]
+CMD ["/usr/local/bin/friendbot", "--conf", "/stellar-friendbot.cfg"]
