@@ -1,25 +1,24 @@
 FROM debian:stretch-slim
 
-# git tag from https://github.com/stellar/go
-ARG STELLAR_FRIENDBOT_VERSION="horizon-v0.13.0"
-ARG GLIDE_VERSION="0.13.1"
-ARG BUILD_DEPS="git build-essential golang-go mercurial wget"
+ARG STELLAR_FRIENDBOT_VERSION="0.0.2"
+ARG STELLAR_FRIENDBOT_BUILD_DEPS="wget"
+ARG STELLAR_FRIENDBOT_DEPS="curl jq"
 ARG CONFD_VERSION="0.16.0"
 
 LABEL maintainer="hello@satoshipay.io"
 
-# install stellar core and confd
+# install stellar friendbot
 ADD install.sh /
 RUN /install.sh
 
+# HTTP port
 EXPOSE 8000
 
-# configuration options, see here for docs:
-# https://github.com/stellar/go/blob/master/services/friendbot/friendbot.cfg
 ENV \
   NETWORK_PASSPHRASE="Test SDF Network ; September 2015" \
   HORIZON_URL="https://horizon-testnet.stellar.org" \
-  STARTING_BALANCE="10000.00"
+  STARTING_BALANCE="10000.00" \
+  NUM_MINIONS=1000
 
 ADD confd /etc/confd
 
